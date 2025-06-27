@@ -5,7 +5,19 @@ edition = "2021"
 
 [dependencies]
 tokio = { version = "1", features = ["full"] }
+tokio-util = "0.7"
+serde = { version = "1", features = ["derive"] }
+serde_json = "1"
+chrono = { version = "0.4", features = ["serde"] }
+sqlx = { version = "0.7", features = [
+    "postgres",
+    "runtime-tokio",
+    "uuid",
+    "chrono",
+    "macros",
+] }
 axum = "0.7"
-sqlx = { version = "0.7", features = ["runtime-tokio", "postgres", "macros"] }
+axum-extra = { version = "0.9", features = ["multipart"] }
+flate2 = { version = "1.0.28", features = ["zlib"] }
 dotenvy = "0.15"
-uuid = { version = "1", features = ["v4"] }
+uuid = { version = "1", features = ["serde", "v4"] }
